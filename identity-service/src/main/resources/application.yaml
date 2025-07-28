@@ -1,0 +1,30 @@
+server:
+    port: 8080
+    servlet:
+        context-path: /identity
+
+spring:
+    datasource:
+        url: ${DBMS_CONNECTION:jdbc:mariadb://localhost:3306/identity_service}
+        driver-class-name: org.mariadb.jdbc.Driver
+        username: ${DBMS_USERNAME:root}
+        password: ${DBMS_PASSWORD:root}
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MariaDBDialect
+    kafka:
+        bootstrap-servers: localhost:9094
+        producer:
+            key-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+jwt:
+    signerKey: "YEBjiMnsXvsPNTPAX5CdImCUyG+5pIMbRFNkyWZeygl5XZEmiRWOpV3SZmvdrEgR"
+    valid-duration: 1800
+    refreshable-duration: 1800
+app :
+    services:
+        profile: http://localhost:8081/profile
