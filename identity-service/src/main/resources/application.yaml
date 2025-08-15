@@ -22,7 +22,7 @@ spring:
             key-serializer: org.apache.kafka.common.serialization.StringSerializer
             value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 jwt:
-    signerKey: "YEBjiMnsXvsPNTPAX5CdImCUyG+5pIMbRFNkyWZeygl5XZEmiRWOpV3SZmvdrEgR"
+    signerKey: ""
     valid-duration: 1800
     refreshable-duration: 1800
 app :
